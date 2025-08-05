@@ -31,6 +31,10 @@ class TextInput(BaseModel):
 # Use Gemini Flash for both text & vision
 model = genai.GenerativeModel("gemini-1.5-flash")
 
+@app.get("/")
+def read_root():
+    return {"status": "API is running 🚀"}
+
 @app.post("/api/trip-planner")
 async def plan_trip(data: TextInput):
     try:
